@@ -8,7 +8,7 @@ npm: v6.14.4
 Expo CLI: 3.21.5
 
 ### Install Dev Tools
-`$ brew insatll node`
+`$ brew install node`
 
 `$ npm install -g expo-cli`
 
