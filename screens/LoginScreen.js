@@ -22,12 +22,10 @@ const validationSchema = Yup.object().shape({
     password: Yup.string().required().min(4).label("Password")
 })
 
-//(18/Jun/20)::(11:27:21) - BUG: Login values are not properly submitted to action. 
+//(18/Jun/20)::(11:27:21) - BUG: Login values are not properly submitted to action. FIXED
 function LoginScreen(props) {
     async function handleLogin(email, password) {
         await props.logUserIn(email, password);
-        console.log(email);
-        console.log(password);
         if (props.user !== null) {
             props.navigation.navigate("Second Screen");
         }
