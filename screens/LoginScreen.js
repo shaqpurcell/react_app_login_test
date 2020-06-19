@@ -26,6 +26,8 @@ const validationSchema = Yup.object().shape({
 function LoginScreen(props) {
     async function handleLogin(email, password) {
         await props.logUserIn(email, password);
+        console.log(email);
+        console.log(password);
         if (props.user !== null) {
             props.navigation.navigate("Second Screen");
         }
@@ -80,7 +82,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    logUserIn: () => dispatch(logUserIn())
+    logUserIn: (email, password) => dispatch(logUserIn(email, password))
 })
 
 

@@ -12,10 +12,11 @@ import axios from 'axios'
 const api = ({dispatch}) => next => async action => {
     console.log(action.type);
     //Check action types, send to next middleware
-    if (action.type !== "api/CallStart") return next(action);
+    if (action.type !== actions.apiCallStart.type) return next(action);
+    next(action);
     //The information required to send a Axios API request + functions to execute on fail/success conditions
     const { route, method, data, onSuccess, onError } = action.payload
-    console.log(data);
+    console.log(action.payload);
 
     try {
         const response = await fetch(API_ENDPOINT + route, {

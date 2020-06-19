@@ -26,8 +26,8 @@ export const logUserIn = (email, password) => actions.apiCallStart ({
     route: "user/login",
     method: "POST",
     data: {
-        email,
-        password
+        email: email,
+        password: password
     },
     onSuccess: 'userAuthenticated'
  })
