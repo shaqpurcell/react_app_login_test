@@ -6,6 +6,7 @@
  */
 
  //(18/Jun/20)::(06:57:14) - Single Colours Object. Maybe a Colours Object for each 'component' ie BUTTON_COLOURS, INPUT_TEXT_COLOURS
+ //(19/Jun/20)::(10:59:30) - Each object contains properties that denote the colour for a given component
 const COLOURS = {
     button: {
         primary: '#25CED1',
