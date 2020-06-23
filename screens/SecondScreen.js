@@ -11,17 +11,25 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SubScreenOne from './SubScreenOne';
 import SubScreenTwo from './SubScreenTwo';
 
+
 const BottomTab = createBottomTabNavigator();
 
 function SecondScreen() {
     return (
             <BottomTab.Navigator>
-                <BottomTab.Screen name="SubScreenOne" component={SubScreenOne}/>
+                <BottomTab.Screen 
+                    name="SubScreenOne" 
+                    component={SubScreenOne} 
+                    />
                 <BottomTab.Screen name="SubScreenTwo" component={SubScreenTwo}/>
             </BottomTab.Navigator>
+ 
     )
 }
 
+
 const styles = StyleSheet.create({})
+
+
 
 export default SecondScreen;

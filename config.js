@@ -6,5 +6,5 @@
  */
 
  //API
- export const API_ENDPOINT = "http://localhost:8888/api/v1/";
+ export const API_ENDPOINT = "http://localhost:8888/api/";
 

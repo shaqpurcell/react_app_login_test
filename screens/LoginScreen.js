@@ -14,7 +14,7 @@ import AppScreen from '../components/AppScreen'
 import { Formik } from 'formik'
 import * as Yup from 'yup' 
 import { connect } from "react-redux"
-import { logUserIn } from '../store/features/auth'
+import { logUserIn, userActive, getUserSession } from '../store/features/auth'
 
 //(18/Jun/20)::(09:36:27) - All variables that need to be validated within a form, as well as the rules for validation
 const validationSchema = Yup.object().shape({
@@ -26,9 +26,7 @@ const validationSchema = Yup.object().shape({
 function LoginScreen(props) {
     async function handleLogin(email, password) {
         await props.logUserIn(email, password);
-        if (props.user !== null) {
-            props.navigation.navigate("Second Screen");
-        }
+        await props.getUserSession();
     }
     return (
 
@@ -75,13 +73,10 @@ const styles = StyleSheet.create( {
 })
 // state.auth.user
 
-const mapStateToProps = state => ({
-    user: state.auth.user
-})
-
 const mapDispatchToProps = dispatch => ({
-    logUserIn: (email, password) => dispatch(logUserIn(email, password))
+    logUserIn: (email, password) => dispatch(logUserIn(email, password)),
+    getUserSession: () => dispatch(getUserSession())
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+export default connect(null, mapDispatchToProps)(LoginScreen);

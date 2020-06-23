@@ -29,11 +29,13 @@ const api = ({dispatch}) => next => async action => {
             body: JSON.stringify(data)
         });
         let json = await response.json();
+        let status = await response.status;
         console.log(json);
+        
         //On Success - general
-        dispatch(actions.apiCallSuccess(json));
+        dispatch(actions.apiCallSuccess({json, status}));
         //On Success - Send recieved data as payload to next function
-        if (onSuccess) dispatch ({type: onSuccess, payload: json});
+        if (onSuccess) dispatch ({type: onSuccess, payload: {json, status}});
         
     } catch (error) {
         console.log(error);
